@@ -10,13 +10,16 @@ export default {
       gray03: '#C2C3CA',
       gray04: '#9699A2',
       gray05: '#5D606D',
-      black: '#primary'
+      black: '#primary',
+      green: '#168E0B',
+      red: '#DA1A1A'
     },
     fonts: {
-      bold: '800 18px Sora, sans-serif',
-      medium: '600 16px Sora-Medium, sans-serif',
-      semi_bold: '600 16px Sora-SemiBold, sans-serif',
-      regular: '400 16px Sora-Regular, sans-serif'
+      extra_bold: '800 32px Sora, sans-serif',
+      bold: '700 18px Sora, sans-serif',
+      medium: '600 16px Sora, sans-serif',
+      semi_bold: '600 16px Sora, sans-serif',
+      regular: '400 16px Sora, sans-serif'
     }
   }
 };

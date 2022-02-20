@@ -20,6 +20,8 @@ declare module 'styled-components' {
         gray05: string;
         black: string;
         dark: string;
+        green: string;
+        red: string;
       };
     };
   }

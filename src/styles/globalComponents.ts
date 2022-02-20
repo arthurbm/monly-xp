@@ -11,12 +11,17 @@ interface TextProps {
   secondary?: boolean;
   dark?: boolean;
   grey?: boolean;
+  grey2?: boolean;
+  grey4?: boolean;
+  red?: boolean;
+  green?: boolean;
   black?: boolean;
   margin?: string;
   padding?: string;
   width?: string;
   white?: boolean;
   alignSelf?: string;
+  opacity?: number;
 }
 
 export const CustomText = styled.p<TextProps>`
@@ -37,9 +42,14 @@ export const CustomText = styled.p<TextProps>`
       (props.primary && theme.main.colors.primary) ||
       (props.secondary && theme.main.colors.secondary) ||
       (props.dark && theme.main.colors.dark) ||
+      (props.grey2 && theme.main.colors.gray02) ||
       (props.grey && theme.main.colors.gray05) ||
+      (props.grey4 && theme.main.colors.gray04) ||
+      (props.red && theme.main.colors.red) ||
       (props.black && theme.main.colors.black) ||
       (props.white && theme.main.colors.white) ||
+      (props.green && theme.main.colors.green) ||
       theme.main.colors.primary};
   align-self: ${(props) => props.alignSelf || 'auto'};
+  opacity: ${(props) => props.opacity || 1};
 `;

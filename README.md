@@ -1,3 +1,5 @@
+- Template for next js starting cofigurations found on this repository https://github.com/Boost-Studio/boilerplate
+
 # How to start the project
 
 This project was started with [Next.js](https://nextjs.org/)
