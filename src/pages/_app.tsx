@@ -1,13 +1,13 @@
+import TokenProvider from 'contexts/tokenContext';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
 import GlobalStyles from 'styles/global';
-
 function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <TokenProvider>
       <Head>
-        <title>Boilerplate</title>
+        <title>Monly</title>
         <link
           rel="shortcut icon"
           href="/img/icon-192.png"
@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </>
+    </TokenProvider>
   );
 }
 
