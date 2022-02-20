@@ -9,6 +9,7 @@ interface TextProps {
   regular?: boolean;
   primary?: boolean;
   secondary?: boolean;
+  dark?: boolean;
   grey?: boolean;
   black?: boolean;
   margin?: string;
@@ -24,18 +25,19 @@ export const CustomText = styled.p<TextProps>`
   margin: ${(props) => props.margin || '0px'};
   padding: ${(props) => props.padding || '0px'};
   width: ${(props) => props.width || 'auto'};
-  /* font-family: ${(props) =>
+  font-family: ${(props) =>
     ({ theme }) =>
       (props.bold && theme.main.fonts.bold) ||
       (props.semiBold && theme.main.fonts.semi_bold) ||
       (props.medium && theme.main.fonts.medium) ||
       (props.regular && theme.main.fonts.regular) ||
-      theme.main.fonts.regular}; */
+      theme.main.fonts.regular};
   color: ${(props) =>
     ({ theme }) =>
       (props.primary && theme.main.colors.primary) ||
       (props.secondary && theme.main.colors.secondary) ||
-      (props.grey && theme.main.colors.gray01_bg) ||
+      (props.dark && theme.main.colors.dark) ||
+      (props.grey && theme.main.colors.gray05) ||
       (props.black && theme.main.colors.black) ||
       (props.white && theme.main.colors.white) ||
       theme.main.colors.primary};
