@@ -29,9 +29,9 @@ const ObjectiveCard = ({
           </CustomText>
         </LeftWrapper>
         <RightWrapper>
-          <CustomText bold>{value}</CustomText>
+          <CustomText medium>{value}</CustomText>
           {isPositive && (
-            <CustomText size="12px" green bold>
+            <CustomText size="12px" green medium>
               {percentual}
             </CustomText>
           )}

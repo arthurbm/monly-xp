@@ -11,6 +11,7 @@ import {
 } from 'styles/home';
 import Image from 'next/image';
 import ObjectiveCard from 'components/ObjectiveCard';
+import InvestmentBox from 'components/InvestmentBox';
 
 const Home = () => {
   const objectivesInfo = [
@@ -65,6 +66,7 @@ const Home = () => {
       </BlueBackground>
       <GrayBackground>
         <ContainerGray>
+          <InvestmentBox />
           <CustomText margin="25px 0 0 0" align="left" black bold>
             Acompanhe seus objetivos
           </CustomText>
