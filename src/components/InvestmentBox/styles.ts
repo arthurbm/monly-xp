@@ -10,13 +10,13 @@ interface PriceContainerProps {
 
 export const WhiteBackgorund = styled.div`
   background-color: ${({ theme }) => theme.main.colors.white};
-  height: 400px;
+  height: 500px;
   display: flex;
   /* justify-content: space-between; */
   flex-direction: column;
   padding: 16px 8px;
   border-radius: 4px;
-  margin-top: -32px;
+  margin-top: -56px;
   box-shadow: 0px 4px 20px -9px rgba(0, 0, 0, 0.15);
   padding: 20px 16px;
 `;
