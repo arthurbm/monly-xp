@@ -13,7 +13,7 @@ export default {
       black: '#primary'
     },
     fonts: {
-      bold: 'Sora-Bold, sans-serif',
+      bold: '800 15px Sora, sans-serif',
       medium: 'Sora-Medium, sans-serif',
       semi_bold: 'Sora-SemiBold, sans-serif',
       regular: 'Sora-Regular, sans-serif'

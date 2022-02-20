@@ -21,11 +21,11 @@ interface TextProps {
 
 export const CustomText = styled.p<TextProps>`
   text-align: ${(props) => props.align || 'center'};
-  font-size: ${(props) => props.size || '15px'};
+  font-size: ${(props) => props.size || '50px'} !important;
   margin: ${(props) => props.margin || '0px'};
   padding: ${(props) => props.padding || '0px'};
   width: ${(props) => props.width || 'auto'};
-  font-family: ${(props) =>
+  font: ${(props) =>
     ({ theme }) =>
       (props.bold && theme.main.fonts.bold) ||
       (props.semiBold && theme.main.fonts.semi_bold) ||

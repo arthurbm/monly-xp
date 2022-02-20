@@ -21,6 +21,12 @@ function App({ Component, pageProps }: AppProps) {
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#06092B" />
           <meta name="description" content="A simple boilerplate for next.js" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <GlobalStyles />
         <Component {...pageProps} />
