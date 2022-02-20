@@ -1,17 +1,10 @@
-// const isProd = process.env.NODE_ENV === 'production';
+const withPWA = require('next-pwa');
+const isProd = process.env.NODE_ENV === 'production';
 
-const withTM = require('next-transpile-modules')([
-  '@mui/material',
-  '@mui/system'
-]);
-
-module.exports = withTM({
+module.exports = withPWA({
   reactStrictMode: true,
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@mui/styled-engine': '@mui/styled-engine-sc'
-    };
-    return config;
+  pwa: {
+    dest: 'public',
+    disable: !isProd
   }
 });
