@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: ${theme.main.colors.grayBackground};
+  background-color: ${theme.main.colors.gray01_bg};
   display: flex;
   flex-direction: column;
   align-items: center;

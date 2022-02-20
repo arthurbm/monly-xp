@@ -10,7 +10,6 @@ export default {
       gray03: '#C2C3CA',
       gray04: '#9699A2',
       gray05: '#5D606D',
-      grayBackground: '#E5E5E5',
       black: '#primary'
     },
     fonts: {
