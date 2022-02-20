@@ -18,7 +18,8 @@ interface ButtonProps {
 
 const ButtonCustom = styled(Button)<ButtonProps>`
   height: ${(props) => props.height || '45px'};
-  width: ${(props) => props.width || '325px'};
+  width: ${(props) => props.width || '90%'};
+  max-width: 325px;
   letter-spacing: ${(props) => props.letterSpacing || '1.25px'};
   text-transform: ${(props) => props.textTransfrom || 'none'};
   border-radius: ${(props) => props.borderRadius || '51px'};
