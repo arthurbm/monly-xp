@@ -10,7 +10,8 @@ export default {
       gray03: '#C2C3CA',
       gray04: '#9699A2',
       gray05: '#5D606D',
-      black: '#primary'
+      black: '#primary',
+      green: '#168E0B'
     },
     fonts: {
       extra_bold: '800 32px Sora, sans-serif',

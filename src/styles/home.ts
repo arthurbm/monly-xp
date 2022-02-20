@@ -17,7 +17,19 @@ export const Container = styled.div`
   height: 100%;
 `;
 
+export const ContainerGray = styled(Container)`
+  justify-content: start;
+`;
+
 export const TextImageContainer = styled.div`
   display: flex;
+  align-items: center;
+`;
+
+export const GrayBackground = styled.div`
+  background-color: ${({ theme }) => theme.main.colors.gray02};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 `;

@@ -12,6 +12,7 @@ interface TextProps {
   dark?: boolean;
   grey?: boolean;
   grey2?: boolean;
+  green?: boolean;
   black?: boolean;
   margin?: string;
   padding?: string;
@@ -43,6 +44,7 @@ export const CustomText = styled.p<TextProps>`
       (props.grey && theme.main.colors.gray05) ||
       (props.black && theme.main.colors.black) ||
       (props.white && theme.main.colors.white) ||
+      (props.green && theme.main.colors.green) ||
       theme.main.colors.primary};
   align-self: ${(props) => props.alignSelf || 'auto'};
   opacity: ${(props) => props.opacity || 1};
