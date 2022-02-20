@@ -4,6 +4,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { useCallback, useEffect } from 'react';
 import { useAxios } from 'utils/useAxios';
 import { useToken } from '../contexts/tokenContext';
+import CircularProgressPrice from 'components/CircularProgressPrice';
 
 export default function Home() {
   const [axiosGet] = useAxios('get');
@@ -28,8 +29,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <Main /> */}
-      <h1>Hello</h1>
+      <CircularProgressPrice value={5000} maxValue={7750} daysMissing={13} />
     </>
   );
 }
