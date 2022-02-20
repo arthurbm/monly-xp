@@ -4,6 +4,10 @@ interface DividerProps {
   margin?: string;
 }
 
+interface PriceContainerProps {
+  margin?: string;
+}
+
 export const WhiteBackgorund = styled.div`
   background-color: ${({ theme }) => theme.main.colors.white};
   height: 400px;
@@ -25,5 +29,18 @@ export const Divider = styled.div<DividerProps>`
 export const BankDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 16px;
+`;
+
+export const PriceContainer = styled.div<PriceContainerProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: fit-content;
+  margin: ${(props) => props.margin || '0px'};
+`;
+
+export const PricesContainer = styled.div`
+  display: flex;
   margin-top: 16px;
 `;

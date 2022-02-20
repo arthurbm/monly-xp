@@ -12,6 +12,8 @@ interface TextProps {
   dark?: boolean;
   grey?: boolean;
   grey2?: boolean;
+  grey4?: boolean;
+  red?: boolean;
   green?: boolean;
   black?: boolean;
   margin?: string;
@@ -42,6 +44,8 @@ export const CustomText = styled.p<TextProps>`
       (props.dark && theme.main.colors.dark) ||
       (props.grey2 && theme.main.colors.gray02) ||
       (props.grey && theme.main.colors.gray05) ||
+      (props.grey4 && theme.main.colors.gray04) ||
+      (props.red && theme.main.colors.red) ||
       (props.black && theme.main.colors.black) ||
       (props.white && theme.main.colors.white) ||
       (props.green && theme.main.colors.green) ||
