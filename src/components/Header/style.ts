@@ -12,3 +12,8 @@ export const Container = styled.div`
     margin: 5px 0;
   }
 `;
+export const Arrow = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`;

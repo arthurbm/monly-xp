@@ -6,7 +6,7 @@ const Input = styled.input`
   height: 50px;
   font: ${theme.main.fonts.regular};
   border: none;
-
+  border-radius: 4px;
   padding: 0 10px;
 
   &:focus {

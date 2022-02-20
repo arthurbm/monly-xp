@@ -1,6 +1,6 @@
 import React from 'react';
 import { CustomText } from 'styles/globalComponents';
-import { Container } from './style';
+import { Container, Arrow } from './style';
 import { ArrowBack } from '../../assets';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -19,7 +19,9 @@ const Header = ({ title, children, previousRoute }: HeaderProps) => {
 
   return (
     <Container>
-      <Image src={ArrowBack} onClick={handleReturn} />
+      <Arrow>
+        <Image src={ArrowBack} onClick={handleReturn} />
+      </Arrow>
 
       <CustomText bold black size="32px">
         {title}

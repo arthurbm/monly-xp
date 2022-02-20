@@ -1,14 +1,28 @@
 import React, { SetStateAction } from 'react';
 import { CustomText } from 'styles/globalComponents';
-import { Container, Info } from './style';
+import {
+  Container,
+  Info,
+  UncheckedIcon,
+  CheckedIcon,
+  ComingSoon
+} from './style';
 import Checkbox from '@mui/material/Checkbox';
 
-type HeaderProps = {
+type FieldCheckProps = {
   emoji?: string;
-  setValue: React.Dispatch<SetStateAction<boolean>>;
+  setValue: React.Dispatch<SetStateAction<string>>;
   children: React.ReactNode; // description
+  comingSoon?: boolean;
+  checked?: boolean;
 };
-const FieldCheck = ({ emoji, children, setValue }: HeaderProps) => {
+const FieldCheck = ({
+  emoji,
+  children,
+  setValue,
+  comingSoon,
+  checked
+}: FieldCheckProps) => {
   return (
     <Container>
       <Info>
@@ -18,7 +32,24 @@ const FieldCheck = ({ emoji, children, setValue }: HeaderProps) => {
         </CustomText>
       </Info>
 
-      <Checkbox />
+      {comingSoon ? (
+        <ComingSoon>
+          <CustomText bold size="12px">
+            EM BREVE
+          </CustomText>
+        </ComingSoon>
+      ) : (
+        <Checkbox
+          icon={<UncheckedIcon />}
+          checkedIcon={<CheckedIcon />}
+          checked={checked}
+          onChange={(event) => {
+            if (event.target.checked && typeof children === 'string') {
+              setValue(children);
+            }
+          }}
+        />
+      )}
     </Container>
   );
 };
