@@ -10,13 +10,14 @@ export default {
       gray03: '#C2C3CA',
       gray04: '#9699A2',
       gray05: '#5D606D',
+      grayBackground: '#E5E5E5',
       black: '#primary'
     },
     fonts: {
-      bold: '800 15px Sora, sans-serif',
-      medium: 'Sora-Medium, sans-serif',
-      semi_bold: 'Sora-SemiBold, sans-serif',
-      regular: 'Sora-Regular, sans-serif'
+      bold: '800 18px Sora, sans-serif',
+      medium: '600 16px Sora-Medium, sans-serif',
+      semi_bold: '600 16px Sora-SemiBold, sans-serif',
+      regular: '400 16px Sora-Regular, sans-serif'
     }
   }
 };
