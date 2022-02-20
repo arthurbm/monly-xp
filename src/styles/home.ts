@@ -8,6 +8,7 @@ export const BlueBackground = styled.div`
   align-items: center;
   /* justify-content: center; */
 `;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,4 +33,23 @@ export const GrayBackground = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const WhiteBackground = styled.div`
+  background-color: ${({ theme }) => theme.main.colors.white};
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 16px;
+`;
+
+export const BlueBox = styled.div`
+  background-color: ${({ theme }) => theme.main.colors.secondary};
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 8px;
+  border-radius: 4px;
 `;

@@ -1,13 +1,15 @@
 /* eslint-disable react/jsx-key */
-import { ProfileImage } from '../assets';
+import { ExchangeLine, FundsLine, ProfileImage } from '../assets';
 import React from 'react';
 import { CustomText } from 'styles/globalComponents';
 import {
   BlueBackground,
+  BlueBox,
   Container,
   ContainerGray,
   GrayBackground,
-  TextImageContainer
+  TextImageContainer,
+  WhiteBackground
 } from 'styles/home';
 import Image from 'next/image';
 import ObjectiveCard from 'components/ObjectiveCard';
@@ -67,6 +69,25 @@ const Home = () => {
       <GrayBackground>
         <ContainerGray>
           <InvestmentBox />
+
+          <WhiteBackground>
+            <BlueBox>
+              {/* <Icon name="funds-line" type="line" size="3x" /> */}
+              <Image src={FundsLine} alt="icon" />
+              <CustomText medium size="12px">
+                Novo investimento
+              </CustomText>
+            </BlueBox>
+
+            <BlueBox>
+              {/* <Icon name="funds-line" type="line" size="3x" /> */}
+              <Image src={ExchangeLine} alt="icon" />
+              <CustomText medium size="12px">
+                Aplicações programadas
+              </CustomText>
+            </BlueBox>
+          </WhiteBackground>
+
           <CustomText margin="25px 0 0 0" align="left" black bold>
             Acompanhe seus objetivos
           </CustomText>
