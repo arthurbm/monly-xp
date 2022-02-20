@@ -8,8 +8,6 @@ import {
   TextContainer
 } from './style';
 
-// import { Container } from './styles';
-
 interface CircularProgressPriceProps {
   value: number;
   maxValue: number;
