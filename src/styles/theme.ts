@@ -13,10 +13,11 @@ export default {
       black: '#primary'
     },
     fonts: {
-      bold: '800 15px Sora, sans-serif',
-      medium: 'Sora-Medium, sans-serif',
-      semi_bold: 'Sora-SemiBold, sans-serif',
-      regular: 'Sora-Regular, sans-serif'
+      extra_bold: '800 32px Sora, sans-serif',
+      bold: '700 18px Sora, sans-serif',
+      medium: '600 16px Sora, sans-serif',
+      semi_bold: '600 16px Sora, sans-serif',
+      regular: '400 16px Sora, sans-serif'
     }
   }
 };
