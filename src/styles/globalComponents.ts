@@ -21,7 +21,7 @@ interface TextProps {
 
 export const CustomText = styled.p<TextProps>`
   text-align: ${(props) => props.align || 'center'};
-  font-size: ${(props) => props.size || '50px'} !important;
+  font-size: ${(props) => props.size} !important;
   margin: ${(props) => props.margin || '0px'};
   padding: ${(props) => props.padding || '0px'};
   width: ${(props) => props.width || 'auto'};
