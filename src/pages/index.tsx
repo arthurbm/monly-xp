@@ -8,7 +8,7 @@ import { CustomText } from '../styles/globalComponents';
 import { BlueButton, TextButton } from 'components';
 import { Container, Content, Titles, Buttons, WhiteCircle } from './style';
 
-export default function Home() {
+export default function Start() {
   const [axiosGet] = useAxios('get');
   const { setToken } = useToken();
   const router = useRouter();
