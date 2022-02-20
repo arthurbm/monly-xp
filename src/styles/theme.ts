@@ -2,6 +2,7 @@ export default {
   main: {
     colors: {
       primary: '#2939C3',
+      dark: '#2939C3',
       secondary: '#EDEEF5',
       white: '#FFFFFF',
       gray01_bg: '#F6F6F7',
@@ -12,10 +13,10 @@ export default {
       black: '#primary'
     },
     fonts: {
-      bold: 'Roboto-Bold',
-      medium: 'Roboto-Medium',
-      semi_bold: 'Roboto-SemiBold',
-      regular: 'Roboto-Regular'
+      bold: 'Sora-Bold, sans-serif',
+      medium: 'Sora-Medium, sans-serif',
+      semi_bold: 'Sora-SemiBold, sans-serif',
+      regular: 'Sora-Regular, sans-serif'
     }
   }
 };
