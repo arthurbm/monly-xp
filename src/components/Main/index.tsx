@@ -1,4 +1,4 @@
-import * as S from './styles'
+import * as S from './styles';
 
 const Main = () => (
   <S.Wrapper>
@@ -12,6 +12,6 @@ const Main = () => (
       alt="Desenvolvedor sentado a frente de um computador"
     />
   </S.Wrapper>
-)
+);
 
-export default Main
+export default Main;
