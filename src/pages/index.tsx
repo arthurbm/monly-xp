@@ -1,5 +1,3 @@
-// import Main from 'components/Main';
-
 import { AxiosError, AxiosResponse } from 'axios';
 import { useCallback, useEffect } from 'react';
 import { useAxios } from 'utils/useAxios';
