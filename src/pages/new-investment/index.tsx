@@ -18,8 +18,12 @@ export default function NewInvestment() {
 
   const goToNextPage = () => {
     if (objective && chosenCategory) {
-      console.log(objective, chosenCategory);
-      // router.push('')
+      router.push({
+        pathname: 'configure-application',
+        query: { objective, chosenCategory }
+      });
+    } else {
+      alert('Preencha os campos');
     }
   };
 
