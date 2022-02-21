@@ -1,5 +1,5 @@
 [
-  { "name": "CDB Liquidez Diária", "description": "Risco: Mínimo;Rendimento (12M): 25%;Liquidez: D+1" },
-  { "name": "Produto", "description": "Risco: Mínimo;Rendimento (12M): 25%;Liquidez: D+1" },
-  { "name": "Produto 2", "description": "Risco: Mínimo;Rendimento (12M): 25%;Liquidez: D+1"}
+  { "name": "CDB Liquidez Diária", "description": "Risco: Mínimo;Rendimento (12M): 25%;Liquidez: D+1", "suitability": 25 },
+  { "name": "Produto", "description": "Risco: Moderado;Rendimento (12M): 25%;Liquidez: D+1", "suitability": 50 },
+  { "name": "Produto 2", "description": "Risco: Alto;Rendimento (12M): 25%;Liquidez: D+1", "suitability": 75 }
 ]
