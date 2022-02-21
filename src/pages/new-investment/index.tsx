@@ -19,7 +19,7 @@ export default function NewInvestment() {
   const goToNextPage = () => {
     if (objective && chosenCategory) {
       console.log(objective, chosenCategory);
-      // router.push('')
+      router.push('choose-product');
     }
   };
 
@@ -50,6 +50,7 @@ export default function NewInvestment() {
               checked={name === chosenCategory}
               setValue={setChosenCategory}
               comingSoon={comingSoon}
+              usesEmoji={true}
             >
               {name}
             </FieldCheck>

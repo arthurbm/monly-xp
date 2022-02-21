@@ -16,6 +16,8 @@ type FieldCheckProps = {
   comingSoon?: boolean;
   checked?: boolean;
   description?: string;
+  height?: string;
+  usesEmoji?: boolean;
 };
 const FieldCheck = ({
   emoji,
@@ -23,11 +25,13 @@ const FieldCheck = ({
   setValue,
   comingSoon,
   checked,
-  description
+  description,
+  height,
+  usesEmoji
 }: FieldCheckProps) => {
   return (
-    <Container>
-      <Info>
+    <Container height={height}>
+      <Info usesEmoji={usesEmoji}>
         {emoji && <CustomText regular>{emoji}</CustomText>}
         <CustomText regular black size="16px">
           {children}

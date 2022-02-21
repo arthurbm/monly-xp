@@ -2,9 +2,17 @@ import styled from 'styled-components';
 import theme from 'styles/theme';
 import { styled as muiStyled } from '@mui/material/styles';
 
-export const Container = styled.div`
+interface ContainerProps {
+  height?: string;
+}
+
+interface InfoProps {
+  usesEmoji?: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 100%;
-  height: 150px;
+  height: ${(props) => props.height || '60px'};
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -13,11 +21,11 @@ export const Container = styled.div`
   background-color: ${theme.main.colors.white};
 `;
 
-export const Info = styled.div`
+export const Info = styled.div<InfoProps>`
   width: 80%;
   display: flex;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.usesEmoji ? 'row' : 'column')};
 
   & p {
     margin-right: 10px;
