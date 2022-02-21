@@ -1,39 +1,40 @@
-- Template for next js starting cofigurations found on this repository https://github.com/Boost-Studio/boilerplate
+# Bem vindo ao repositório do monly!
+Criando sua disciplina financeira para um futuro mais tranquilo!
 
-# How to start the project
+## Time 11
+|Nome| Perfil
+|--|--|--|
+| [José Cordeiro](https://www.linkedin.com/in/jgcordeiro/) | Designer |
+| [Cynara Costa](https://www.linkedin.com/in/cynaracosta/)| Product Owner |
+| [Leonardo Magalhães](https://www.linkedin.com/in/leonardo-magalh%C3%A3es08/)| Negócios |
+| [Arthur Brito](https://www.linkedin.com/in/arthur-brito-medeiros/) | Desenvolvedor |
+| [Pedro Queiroz](https://www.linkedin.com/in/pedro-queiroz-lima/) | Desenvolvedor |
 
-This project was started with [Next.js](https://nextjs.org/)
 
-## Install the dependencies
+## Descrição do projeto
 
-To install all dependencies run `yarn install or yarn` at the root
+Em um cenário em que, de acordo com nossas pesquisas e questionário:
+- Grande parte das pessoas gostariam de investir com mais constância mas não se sentem prontas e não sabem como alocar seu patrimônio;
+- Quase 60% delas sentem falta de um planejamento a longo prazo;
+- Poucas conhecem as melhores opções de investimento para seus objetivos.
 
-## Run the project
+O monly surge como um aliado para facilitar a disciplina e o planejamento financeiro através da centralização de contas, aportes automático e indicação de produtos ideais de acordo com os objetivos e metas dos usuários.
 
-`yarn run dev` will open on localhost:3000 on your browser
+Por meio do Open Finance, o app se apropria de uma gestão inteligente dos dados do usuário para sugerir o investimento ideal para sua realidade e para seus objetivos. Desse modo, o monly visa transmitir segurança, praticidade e conforto através de uma experiência simples voltada para as necessidades financeiras de investidores iniciantes.
 
-## Core dependencies
+## Links úteis
 
-- Typescript - Type checking. Learn more at [TS website](https://typescriptlang.org/).
-- Airbnb Style Eslint & Prettier - Readability. Learn more at [Eslint website](https://eslint.org/) and [Prettier website](https://prettier.io/)
-- Husky & Lint-staged - Git Hooks. Learn more at [Husky website](https://typicode.github.io) and [Lint-staged Documentation](https://github.com/okonet/lint-staged)
-- Styled-components - CSS. Learn more at [SC website](https://styled-components.com)
-- Jest and React Testing Library for test. Learn more at [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+[Protótipo no Figma](https://www.figma.com/proto/BOM3zEyRYvioZwxHSQxaEL/Hacka-XP---Monly?page-id=28:11111&node-id=28:11112&viewport=241,48,0.46&scaling=scale-down&starting-point-node-id=55:1527)
+[Pitch](https://drive.google.com/file/d/1opENe_XhX287KxX54j1W-odKkLK4afWJ/view?usp=sharing)
 
-## How to make a commmit
- To make a commit must be used a following rule:
+## Instruções técnicas
 
- `git commit -m "*type*: commit-message"`
+All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
 
- - Where type is: [`build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`]
- - And commit-message must be written in lower-case.
+Template for next js starting cofigurations found on this repository https://github.com/Boost-Studio/boilerplate
 
- ## How to contribute
+Para fazer a autenticação, pegar o token e entrar no app, clique em Criar conta
 
- - Fetch/pull the Develop Branch
- - Create a Branch based on your issue name
-  - e.g - Branch name is task/kw
-  - e.g - Branch name is bug/kw
-- Once done push your branch to origin and submit a PR to the Develop branch for review 😘
+Você precisa começar na rota raiz / para conseguir acessar as outras rotas do app
 
-## All Rights Reserved for Fernando dos Santos.
+Estão sendo usadas as informações do primeiro usuário da base de dados da API de Open Banking conseguida pela rota /users
