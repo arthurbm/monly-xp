@@ -15,20 +15,25 @@ type FieldCheckProps = {
   children: React.ReactNode; // description
   comingSoon?: boolean;
   checked?: boolean;
+  description?: string;
 };
 const FieldCheck = ({
   emoji,
   children,
   setValue,
   comingSoon,
-  checked
+  checked,
+  description
 }: FieldCheckProps) => {
   return (
     <Container>
       <Info>
-        <CustomText regular>{emoji}</CustomText>
+        {emoji && <CustomText regular>{emoji}</CustomText>}
         <CustomText regular black size="16px">
           {children}
+        </CustomText>
+        <CustomText align="left" regular grey>
+          {description}
         </CustomText>
       </Info>
 
