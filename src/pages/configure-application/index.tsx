@@ -19,6 +19,7 @@ import {
 } from './style';
 import { useState } from 'react';
 import theme from 'styles/theme';
+import { useObjective } from '../../contexts/objectiveContext';
 
 type Frequency = 'Trimestral' | 'Mensal' | 'Quinzenal' | 'Semestral';
 
@@ -26,10 +27,10 @@ export default function NewInvestment() {
   const router = useRouter();
   const [aportType, setAportType] = useState('Parte do saldo restante do mês');
   const [balancePercentage, setBalancePercentage] = useState(50);
-  const [inicialAport, setInicialAport] = useState<number>(0);
+  const [inicialAport, setInicialAport] = useState(0);
   const [frequency, setFrequency] = useState<Frequency>('Mensal');
 
-  const { objective, chosenCategory } = router.query;
+  const { objective, setObjective } = useObjective();
 
   const possibleTypes = ['Valor fixo', 'Parte do saldo restante do mês'];
 
@@ -39,7 +40,15 @@ export default function NewInvestment() {
         typeof Number(inicialAport) === 'number') ||
       aportType === 'Parte do saldo restante do mês'
     ) {
-      setInicialAport(Number(inicialAport));
+      setObjective({
+        ...objective,
+        fixedValue: aportType === 'Valor fixo',
+        remainingBalencePercentage:
+          aportType !== 'Valor fixo' ? balancePercentage : undefined,
+        inicialAport:
+          aportType === 'Valor fixo' ? inicialAport.toString() : undefined,
+        frequency
+      });
       router.push('choose-product');
     } else {
       alert('Verifique os campos');
@@ -58,7 +67,7 @@ export default function NewInvestment() {
             Objetivo
           </CustomText>
           <CustomText regular black>
-            {objective}
+            {objective.name}
           </CustomText>
         </ChosenOptions>
 
@@ -67,7 +76,7 @@ export default function NewInvestment() {
             Categoria
           </CustomText>
           <CustomText regular black>
-            {chosenCategory}
+            {objective.category}
           </CustomText>
         </ChosenOptions>
 

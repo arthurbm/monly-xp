@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import { Header, FieldCheck, BlueButton } from 'components';
-import { Container, Content } from './style';
+import { Container, Content, FlexBox } from './style';
 import { useEffect, useState } from 'react';
-import theme from 'styles/theme';
 import { useToken } from 'contexts/tokenContext';
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
+import { Objective, useObjective } from '../../contexts/objectiveContext';
+import { useAxios } from 'utils/useAxios';
+import CircularProgress from '@mui/material/CircularProgress';
 
 type Institution = {
   bankName: string;
@@ -14,7 +16,11 @@ export default function NewInvestment() {
   const router = useRouter();
   const [bank, setBank] = useState('');
   const [banks, setBanks] = useState<string[]>([]);
+  const [axiosPost] = useAxios('post');
+  const [loading, setLoading] = useState(false);
+
   const { token } = useToken();
+  const { objective, setObjective } = useObjective();
 
   const getBanksNames = (banksArray: { institution: Institution }[]) => {
     return banksArray.map(
@@ -40,8 +46,25 @@ export default function NewInvestment() {
     getUserData();
   }, []);
 
-  const goToNextPage = () => {
-    router.push('choose-product');
+  const goToNextPage = async () => {
+    if (bank) {
+      const fullObjective = { ...objective, bankName: bank };
+      setObjective(fullObjective);
+      setLoading(true);
+
+      await axiosPost({
+        url: '/api/objective',
+        body: fullObjective,
+        success: () => {
+          setObjective({} as Objective);
+          router.push('home');
+        },
+        error: (error: AxiosError) => {
+          setLoading(false);
+          console.log(error.message);
+        }
+      });
+    }
   };
 
   return (
@@ -71,6 +94,11 @@ export default function NewInvestment() {
             Confirmar aplicação automática
           </BlueButton>
         </div>
+        {loading && (
+          <FlexBox>
+            <CircularProgress />
+          </FlexBox>
+        )}
       </Content>
     </Container>
   );

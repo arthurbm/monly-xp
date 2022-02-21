@@ -5,6 +5,7 @@ import { Container, Content } from './style';
 import { useState } from 'react';
 import productsData from './productsData.json';
 import { useToken } from 'contexts/tokenContext';
+import { useObjective } from '../../contexts/objectiveContext';
 
 type ProductType = {
   name: string;
@@ -14,12 +15,14 @@ type ProductType = {
 
 function ChooseProduct() {
   const router = useRouter();
-  const [objective, setObjective] = useState('');
   const [chosenProduct, setChosenProduct] = useState('');
   const { token } = useToken();
 
+  const { objective, setObjective } = useObjective();
+
   const goToNextPage = () => {
     if (chosenProduct) {
+      setObjective({ ...objective, productName: chosenProduct });
       router.push('choose-account');
     }
   };

@@ -4,6 +4,7 @@ import { Header, Input, FieldCheck, BlueButton } from 'components';
 import { Container, Content } from './style';
 import { useState } from 'react';
 import categoriesData from './categories.json';
+import { useObjective } from '../../contexts/objectiveContext';
 
 type Category = {
   emoji: string;
@@ -13,17 +14,19 @@ type Category = {
 
 export default function NewInvestment() {
   const router = useRouter();
-  const [objective, setObjective] = useState('');
+  const [objectiveName, setObjectiveName] = useState('');
   const [chosenCategory, setChosenCategory] = useState('');
+
+  const { objective, setObjective } = useObjective();
 
   const goToNextPage = () => {
     if (objective && chosenCategory) {
-      router.push({
-        pathname: 'configure-application',
-        query: { objective, chosenCategory }
+      setObjective({
+        ...objective,
+        name: objectiveName,
+        category: chosenCategory
       });
-    } else {
-      alert('Preencha os campos');
+      router.push('configure-application');
     }
   };
 
@@ -36,7 +39,7 @@ export default function NewInvestment() {
 
         <Input
           placeholder="Nome do objetivo"
-          onChange={(event) => setObjective(event.target.value)}
+          onChange={(event) => setObjectiveName(event.target.value)}
         />
 
         <CustomText
