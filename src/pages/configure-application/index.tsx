@@ -1,7 +1,13 @@
 import { useRouter } from 'next/router';
 import { CustomText } from '../../styles/globalComponents';
 import { Header, FieldCheck, BlueButton } from 'components';
-import Slider from '@mui/material/Slider';
+import {
+  Slider,
+  Select,
+  MenuItem,
+  FilledInput,
+  InputAdornment
+} from '@mui/material';
 import {
   Container,
   Content,
@@ -14,18 +20,29 @@ import {
 import { useState } from 'react';
 import theme from 'styles/theme';
 
+type Frequency = 'Trimestral' | 'Mensal' | 'Quinzenal' | 'Semestral';
+
 export default function NewInvestment() {
   const router = useRouter();
-  const [aportType, setAportType] = useState('');
+  const [aportType, setAportType] = useState('Valor fixo');
   const [balancePercentage, setBalancePercentage] = useState(50);
+  const [inicialAport, setInicialAport] = useState<number>(0);
+  const [frequency, setFrequency] = useState<Frequency>('Mensal');
 
   const { objective, chosenCategory } = router.query;
 
   const possibleTypes = ['Valor fixo', 'Parte do saldo restante do mês'];
 
   const goToNextPage = () => {
-    if (objective && chosenCategory) {
-      // router.push('')
+    if (
+      (aportType === 'Valor fixo' &&
+        typeof Number(inicialAport) === 'number') ||
+      aportType === 'Parte do saldo restante do mês'
+    ) {
+      setInicialAport(Number(inicialAport));
+      router.push('choose-product');
+    } else {
+      alert('Verifique os campos');
     }
   };
 
@@ -76,34 +93,53 @@ export default function NewInvestment() {
         ))}
 
         <HowMuchOfBalance>
-          <Balance>
-            <InformationRow>
-              <CustomText semiBold grey4 size="12px">
-                QUANTIDADE:
-              </CustomText>
-              <CustomText semiBold>{`${balancePercentage}%`}</CustomText>
-            </InformationRow>
+          {aportType === 'Parte do saldo restante do mês' ? (
+            <Balance>
+              <InformationRow>
+                <CustomText semiBold grey4 size="12px">
+                  QUANTIDADE:
+                </CustomText>
+                <CustomText semiBold>{`${balancePercentage}%`}</CustomText>
+              </InformationRow>
 
-            <Slider
-              style={{ color: theme.main.colors.primary, margin: '0 10px' }}
-              value={balancePercentage}
-              onChange={(event, newValue) => {
-                if (typeof newValue === 'number')
-                  setBalancePercentage(newValue);
-              }}
-            />
-          </Balance>
+              <Slider
+                style={{ color: theme.main.colors.primary, margin: '0 10px' }}
+                value={balancePercentage}
+                onChange={(event, newValue) => {
+                  if (typeof newValue === 'number')
+                    setBalancePercentage(newValue);
+                }}
+              />
+            </Balance>
+          ) : (
+            <InformationRow>
+              <CustomText regular black>
+                Aporte inicial:
+              </CustomText>
+              <FilledInput
+                inputMode="numeric"
+                value={inicialAport}
+                onChange={(event) => setInicialAport(event.target.value)}
+                startAdornment={
+                  <InputAdornment position="start">R$</InputAdornment>
+                }
+              />
+            </InformationRow>
+          )}
 
           <InformationRow>
             <CustomText regular black>
               Frequência:
             </CustomText>
-          </InformationRow>
-
-          <InformationRow>
-            <CustomText regular black>
-              Aporte inicial:
-            </CustomText>
+            <Select
+              value={frequency}
+              onChange={(event) => setFrequency(event.target.value)}
+            >
+              <MenuItem value="Quinzenal">Quinzenal</MenuItem>
+              <MenuItem value="Mensal">Mensal</MenuItem>
+              <MenuItem value="Trimestral">Trimestral</MenuItem>
+              <MenuItem value="Semestral">Semestral</MenuItem>
+            </Select>
           </InformationRow>
         </HowMuchOfBalance>
 

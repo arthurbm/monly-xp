@@ -42,7 +42,8 @@ export const AportSection = styled.div`
 `;
 
 export const HowMuchOfBalance = styled.div`
-  height: 265px;
+  width: 100%;
+  height: 200px;
   padding: 0 10px 50px 0;
   display: flex;
   align-items: center;
@@ -58,6 +59,19 @@ export const InformationRow = styled.div`
   width: 100%;
   padding: 10px 10px 0 10px;
   justify-content: space-between;
+  align-items: center;
+
+  .MuiSelect-select {
+    width: 150px;
+    background-color: ${theme.main.colors.gray02};
+    font: ${theme.main.fonts.regular};
+  }
+
+  input {
+    width: 150px;
+    background-color: ${theme.main.colors.gray02};
+    font: ${theme.main.fonts.regular};
+  }
 `;
 
 export const Balance = styled.div`
