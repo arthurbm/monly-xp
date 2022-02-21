@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CustomText } from 'styles/globalComponents';
 import { LeftWrapper, RightWrapper, WhiteBackgorund } from './styles';
 
@@ -18,7 +18,8 @@ const ObjectiveCard = ({
   value,
   percentual,
   isPositive
-}: ObjectiveCardProps) => {
+}: // key
+ObjectiveCardProps) => {
   return (
     <>
       <WhiteBackgorund>

@@ -1,6 +1,6 @@
 import { BlueBall, OrangeBall, UpArrow } from 'assets';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CustomText } from 'styles/globalComponents';
 import {
   BankDiv,
@@ -12,7 +12,20 @@ import {
 
 // import { Container } from './styles';
 
-const InvestmentBox = () => {
+interface BalancePerBankProps {
+  name: string;
+  balance: number;
+}
+
+interface InvestmentBoxProps {
+  banksData: BalancePerBankProps[];
+}
+
+const InvestmentBox = ({ banksData }: InvestmentBoxProps) => {
+  useEffect(() => {
+    console.log(banksData);
+  }, []);
+
   return (
     <>
       <WhiteBackgorund>
@@ -28,25 +41,22 @@ const InvestmentBox = () => {
         <CustomText margin="16px 0 0 0" align="left" medium black>
           Saldos atuais
         </CustomText>
-        <BankDiv>
-          <div style={{ display: 'flex' }}>
-            <Image src={BlueBall} alt="blue ball" />
-            <CustomText margin="0 0 0 14px" align="left" black>
-              Banco A
+        {banksData?.map((bankData) => (
+          <BankDiv key={bankData.name}>
+            <div style={{ display: 'flex' }}>
+              <Image src={BlueBall} alt="blue ball" />
+              <CustomText margin="0 0 0 14px" align="left" black>
+                Banco {bankData.name}
+              </CustomText>
+            </div>
+            <CustomText black>
+              {bankData.balance.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              })}
             </CustomText>
-          </div>
-          <CustomText black>R$ 1.112,00</CustomText>
-        </BankDiv>
-
-        <BankDiv>
-          <div style={{ display: 'flex' }}>
-            <Image src={OrangeBall} alt="blue ball" />
-            <CustomText margin="0 0 0 10px" align="left" black>
-              Banco B
-            </CustomText>
-          </div>
-          <CustomText black>R$ 1.522,75</CustomText>
-        </BankDiv>
+          </BankDiv>
+        ))}
 
         <Divider margin="16px 0 0 0" />
 

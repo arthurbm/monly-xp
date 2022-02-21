@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-key */
-import { ExchangeLine, FundsLine, ProfileImage } from '../assets';
-import React from 'react';
+import { ExchangeLine, FundsLine, ProfileImage } from '../../assets';
+import React, { useEffect, useState } from 'react';
 import { CustomText } from 'styles/globalComponents';
 import {
   BlueBackground,
@@ -10,12 +9,26 @@ import {
   GrayBackground,
   TextImageContainer,
   WhiteBackground
-} from 'styles/home';
+} from './styles';
 import Image from 'next/image';
 import ObjectiveCard from 'components/ObjectiveCard';
 import InvestmentBox from 'components/InvestmentBox';
+import { useRouter } from 'next/router';
+import { useAxios } from 'utils/useAxios';
+import axios, { AxiosResponse } from 'axios';
+
+interface BalancePerBankProps {
+  name: string;
+  balance: number;
+}
 
 const Home = () => {
+  const router = useRouter();
+  const [userName, setUserName] = useState<string>();
+  const [balance, setBalance] = useState<number>();
+  const [balancePerBank, setBalancePerBank] = useState<BalancePerBankProps[]>();
+  const [axiosGet] = useAxios('get');
+
   const objectivesInfo = [
     {
       title: 'Viagem',
@@ -40,6 +53,63 @@ const Home = () => {
     }
   ];
 
+  function navigateToObjective() {
+    router.push('/new-investment');
+  }
+
+  async function getToken() {
+    await axiosGet({
+      url: '/api/accessToken',
+      success: (res: AxiosResponse) => {
+        const { token } = res.data;
+        getUserData(token);
+      },
+      error: () => {
+        throw Error('Erro na requisição da Home');
+      }
+    });
+  }
+
+  function getTotalBalance(banksObj: any) {
+    return Object.keys(banksObj).reduce((acc, bank) => {
+      return acc + banksObj[bank].checking.balance;
+    }, 0);
+  }
+
+  function getBalancePerBank(banksObj: any) {
+    const banks = Object.keys(banksObj);
+    const balancePerBank = banks.map((bank) => {
+      return {
+        name: bank,
+        balance: banksObj[bank].checking.balance
+      };
+    });
+    return balancePerBank;
+  }
+
+  async function getUserData(token: string) {
+    await axios
+      .get('https://openapi.xpi.com.br/openbanking/users?limit=2&offset=0', {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'User-Agent': 'PostmanRuntime/7.26.8',
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then((response: AxiosResponse) => {
+        console.log(response.data[0]);
+        // console.log(response.data[0].banks);
+        setUserName(response.data[0].name);
+        setBalance(getTotalBalance(response.data[0].banks));
+        // console.log(getBalancePerBank(response.data[0].banks));
+        setBalancePerBank(getBalancePerBank(response.data[0].banks));
+      });
+  }
+
+  useEffect(() => {
+    getToken();
+  }, []);
+
   return (
     <>
       <BlueBackground>
@@ -47,7 +117,7 @@ const Home = () => {
           <TextImageContainer>
             <Image src={ProfileImage} alt="profile picture" />
             <CustomText margin="0 0 0 10px" align="left" white size="18px">
-              Olá John
+              Olá {userName}
             </CustomText>
           </TextImageContainer>
           <div>
@@ -55,23 +125,26 @@ const Home = () => {
               Patrimônio líquido
             </CustomText>
             <CustomText
-              margin="10px 0 10px 0"
+              margin="10px 0 40px 0"
               size="24px"
               bold
               align="left"
               white
             >
-              R$ 102.012,00
+              {balance?.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+              })}
             </CustomText>
           </div>
         </Container>
       </BlueBackground>
       <GrayBackground>
         <ContainerGray>
-          <InvestmentBox />
+          {balancePerBank && <InvestmentBox banksData={balancePerBank} />}
 
           <WhiteBackground>
-            <BlueBox>
+            <BlueBox onClick={navigateToObjective}>
               {/* <Icon name="funds-line" type="line" size="3x" /> */}
               <Image src={FundsLine} alt="icon" />
               <CustomText medium size="12px">
@@ -93,6 +166,7 @@ const Home = () => {
           </CustomText>
           {objectivesInfo.map((objectiveInfo) => (
             <ObjectiveCard
+              key={objectiveInfo.title}
               title={objectiveInfo.title}
               description={objectiveInfo.desciption}
               value={objectiveInfo.value}

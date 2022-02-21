@@ -27,10 +27,6 @@ function App({ Component, pageProps }: AppProps) {
             href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
             rel="stylesheet"
           />
-          <link
-            href="https://cdn.remixicon.com/releases/v1.3.1/remixicon.css"
-            rel="stylesheet"
-          />
         </Head>
         <GlobalStyles />
         <Component {...pageProps} />
