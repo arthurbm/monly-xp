@@ -22,10 +22,6 @@ interface InvestmentBoxProps {
 }
 
 const InvestmentBox = ({ banksData }: InvestmentBoxProps) => {
-  useEffect(() => {
-    console.log(banksData);
-  }, []);
-
   return (
     <>
       <WhiteBackgorund>

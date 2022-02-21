@@ -14,8 +14,9 @@ import Image from 'next/image';
 import ObjectiveCard from 'components/ObjectiveCard';
 import InvestmentBox from 'components/InvestmentBox';
 import { useRouter } from 'next/router';
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { useToken } from '../../contexts/tokenContext';
+import { useAxios } from 'utils/useAxios';
 
 interface BalancePerBankProps {
   name: string;
@@ -28,6 +29,7 @@ const Home = () => {
   const [balance, setBalance] = useState<number>();
   const [balancePerBank, setBalancePerBank] = useState<BalancePerBankProps[]>();
   const { token } = useToken();
+  const [axiosGet] = useAxios('get');
 
   const objectivesInfo = [
     {
@@ -90,8 +92,21 @@ const Home = () => {
       });
   }
 
+  // async function getUserObjectives() {
+  //   await axiosGet({
+  //     url: '/api/getObjective',
+  //     success: (res: AxiosResponse) => {
+  //       console.log(res.data);
+  //     },
+  //     error: (error: AxiosError) => {
+  //       console.log(error.message);
+  //     }
+  //   });
+  // }
+
   useEffect(() => {
     getUserData();
+    // getUserObjectives();
   }, []);
 
   return (
