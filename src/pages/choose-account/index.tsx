@@ -51,9 +51,14 @@ export default function NewInvestment() {
           Selecione a conta que será usada para os aportes automáticos
         </Header>
 
-        {banks.map((bankName: string) => (
+        {banks.map((bankName: string, index: number) => (
           <div key={bankName} style={{ marginTop: '8px' }}>
-            <FieldCheck checked={bankName === bank} setValue={setBank}>
+            <FieldCheck
+              checked={bankName === bank}
+              setValue={setBank}
+              usesEmoji
+              emoji={['🟠', '⚫', '🔵', '🟢'][index]}
+            >
               {bankName}
             </FieldCheck>
           </div>
@@ -62,7 +67,9 @@ export default function NewInvestment() {
         <div
           style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}
         >
-          <BlueButton onClick={goToNextPage}>Continuar</BlueButton>
+          <BlueButton onClick={goToNextPage}>
+            Confirmar aplicação automática
+          </BlueButton>
         </div>
       </Content>
     </Container>

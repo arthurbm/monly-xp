@@ -101,7 +101,7 @@ const Home = () => {
           <TextImageContainer>
             <Image src={ProfileImage} alt="profile picture" />
             <CustomText margin="0 0 0 10px" align="left" white size="18px">
-              Olá {userName}
+              Olá, {userName}
             </CustomText>
           </TextImageContainer>
           <div>
