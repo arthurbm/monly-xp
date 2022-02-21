@@ -117,7 +117,7 @@ function ChooseProduct() {
   return (
     <Container>
       <Content>
-        <Header title="Escolha o produto" previousRoute="/home">
+        <Header title="Escolha o produto">
           Insira o nome do seu objetivo e a categoria que ele se enquadra
         </Header>
 

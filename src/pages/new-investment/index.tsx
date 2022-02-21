@@ -18,15 +18,19 @@ export default function NewInvestment() {
 
   const goToNextPage = () => {
     if (objective && chosenCategory) {
-      console.log(objective, chosenCategory);
-      router.push('choose-product');
+      router.push({
+        pathname: 'configure-application',
+        query: { objective, chosenCategory }
+      });
+    } else {
+      alert('Preencha os campos');
     }
   };
 
   return (
     <Container>
       <Content>
-        <Header title="Novo investimento" previousRoute="/home">
+        <Header title="Novo investimento">
           Insira o nome do seu objetivo e a categoria que ele se enquadra
         </Header>
 

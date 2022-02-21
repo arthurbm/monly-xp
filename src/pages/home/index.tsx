@@ -14,7 +14,6 @@ import Image from 'next/image';
 import ObjectiveCard from 'components/ObjectiveCard';
 import InvestmentBox from 'components/InvestmentBox';
 import { useRouter } from 'next/router';
-import { useAxios } from 'utils/useAxios';
 import axios, { AxiosResponse } from 'axios';
 import { useToken } from '../../contexts/tokenContext';
 
@@ -85,11 +84,8 @@ const Home = () => {
         }
       })
       .then((response: AxiosResponse) => {
-        console.log(response.data[0]);
-        // console.log(response.data[0].banks);
         setUserName(response.data[0].name);
         setBalance(getTotalBalance(response.data[0].banks));
-        // console.log(getBalancePerBank(response.data[0].banks));
         setBalancePerBank(getBalancePerBank(response.data[0].banks));
       });
   }
@@ -105,7 +101,7 @@ const Home = () => {
           <TextImageContainer>
             <Image src={ProfileImage} alt="profile picture" />
             <CustomText margin="0 0 0 10px" align="left" white size="18px">
-              Olá {userName}
+              Olá, {userName}
             </CustomText>
           </TextImageContainer>
           <div>
