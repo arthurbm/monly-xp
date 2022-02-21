@@ -17,16 +17,15 @@ function ChooseProduct() {
   const [chosenProduct, setChosenProduct] = useState('');
 
   const goToNextPage = () => {
-    if (objective && chosenProduct) {
-      console.log(objective, chosenProduct);
-      // router.push('')
+    if (chosenProduct) {
+      router.push('choose-account');
     }
   };
 
   return (
     <Container>
       <Content>
-        <Header title="Escolha o produto" previousRoute="/home">
+        <Header title="Escolha o produto">
           Insira o nome do seu objetivo e a categoria que ele se enquadra
         </Header>
 

@@ -49,7 +49,7 @@ export default function NewInvestment() {
   return (
     <Container>
       <Content>
-        <Header title="Configurar aplicação" previousRoute="/new-investment">
+        <Header title="Configurar aplicação">
           Configure os aportes de acordo com o seu objetivo
         </Header>
 
