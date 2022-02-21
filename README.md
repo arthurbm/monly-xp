@@ -38,3 +38,7 @@ Para fazer a autenticação, pegar o token e entrar no app, clique em Criar cont
 Você precisa começar na rota raiz / para conseguir acessar as outras rotas do app
 
 Estão sendo usadas as informações do primeiro usuário da base de dados da API de Open Banking conseguida pela rota /users
+
+A entidade Objetivo está de fato sendo criada no banco de dados.
+
+Tentamos fazer a requisição de get para pegar as informações de um objetivo, porém não tivemos problemas técnicos e não conseguimos finalizar
