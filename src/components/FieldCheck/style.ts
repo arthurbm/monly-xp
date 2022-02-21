@@ -4,7 +4,7 @@ import { styled as muiStyled } from '@mui/material/styles';
 
 export const Container = styled.div`
   width: 100%;
-  height: 50px;
+  height: 150px;
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -16,9 +16,10 @@ export const Container = styled.div`
 export const Info = styled.div`
   width: 80%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
 
-  p {
+  & p {
     margin-right: 10px;
   }
 `;

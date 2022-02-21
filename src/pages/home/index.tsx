@@ -16,6 +16,7 @@ import InvestmentBox from 'components/InvestmentBox';
 import { useRouter } from 'next/router';
 import { useAxios } from 'utils/useAxios';
 import axios, { AxiosResponse } from 'axios';
+import { useToken } from '../../contexts/tokenContext';
 
 interface BalancePerBankProps {
   name: string;
@@ -27,7 +28,7 @@ const Home = () => {
   const [userName, setUserName] = useState<string>();
   const [balance, setBalance] = useState<number>();
   const [balancePerBank, setBalancePerBank] = useState<BalancePerBankProps[]>();
-  const [axiosGet] = useAxios('get');
+  const { token } = useToken();
 
   const objectivesInfo = [
     {
@@ -54,20 +55,7 @@ const Home = () => {
   ];
 
   function navigateToObjective() {
-    router.push('/new-investment');
-  }
-
-  async function getToken() {
-    await axiosGet({
-      url: '/api/accessToken',
-      success: (res: AxiosResponse) => {
-        const { token } = res.data;
-        getUserData(token);
-      },
-      error: () => {
-        throw Error('Erro na requisição da Home');
-      }
-    });
+    router.push('/choose-product');
   }
 
   function getTotalBalance(banksObj: any) {
@@ -87,7 +75,7 @@ const Home = () => {
     return balancePerBank;
   }
 
-  async function getUserData(token: string) {
+  async function getUserData() {
     await axios
       .get('https://openapi.xpi.com.br/openbanking/users?limit=2&offset=0', {
         headers: {
@@ -107,7 +95,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getToken();
+    getUserData();
   }, []);
 
   return (
@@ -145,7 +133,6 @@ const Home = () => {
 
           <WhiteBackground>
             <BlueBox onClick={navigateToObjective}>
-              {/* <Icon name="funds-line" type="line" size="3x" /> */}
               <Image src={FundsLine} alt="icon" />
               <CustomText medium size="12px">
                 Novo investimento
@@ -153,7 +140,6 @@ const Home = () => {
             </BlueBox>
 
             <BlueBox>
-              {/* <Icon name="funds-line" type="line" size="3x" /> */}
               <Image src={ExchangeLine} alt="icon" />
               <CustomText medium size="12px">
                 Aplicações programadas
