@@ -3,7 +3,7 @@ Criando sua disciplina financeira para um futuro mais tranquilo!
 
 ## Time 11
 |Nome| Perfil
-|--|--|--|
+|--|--|
 | [José Cordeiro](https://www.linkedin.com/in/jgcordeiro/) | Designer |
 | [Cynara Costa](https://www.linkedin.com/in/cynaracosta/)| Product Owner |
 | [Leonardo Magalhães](https://www.linkedin.com/in/leonardo-magalh%C3%A3es08/)| Negócios |
