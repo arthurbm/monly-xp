@@ -54,7 +54,7 @@ const Home = () => {
   ];
 
   function navigateToObjective() {
-    router.push('/choose-product');
+    router.push('/new-investment');
   }
 
   function getTotalBalance(banksObj: any) {

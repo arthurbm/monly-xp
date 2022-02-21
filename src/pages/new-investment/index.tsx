@@ -54,6 +54,7 @@ export default function NewInvestment() {
               checked={name === chosenCategory}
               setValue={setChosenCategory}
               comingSoon={comingSoon}
+              usesEmoji={true}
             >
               {name}
             </FieldCheck>

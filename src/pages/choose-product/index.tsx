@@ -4,6 +4,7 @@ import { Header, Input, FieldCheck, BlueButton } from '../../components';
 import { Container, Content } from './style';
 import { useState } from 'react';
 import productsData from './productsData.json';
+import { useToken } from 'contexts/tokenContext';
 
 type ProductType = {
   name: string;
@@ -15,12 +16,32 @@ function ChooseProduct() {
   const router = useRouter();
   const [objective, setObjective] = useState('');
   const [chosenProduct, setChosenProduct] = useState('');
+  const { token } = useToken();
 
   const goToNextPage = () => {
     if (chosenProduct) {
       router.push('choose-account');
     }
   };
+
+  // async function getUserData() {
+  //   await axios
+  //     .get('https://openapi.xpi.com.br/openbanking/users?limit=2&offset=0', {
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //         'User-Agent': 'PostmanRuntime/7.26.8',
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     })
+  //     .then((response: AxiosResponse) => {
+  //       console.log(response.data[0]);
+  //       // console.log(response.data[0].banks);        setBalancePerBank(getBalancePerBank(response.data[0].banks));
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
 
   return (
     <Container>
@@ -36,6 +57,8 @@ function ChooseProduct() {
               setValue={setChosenProduct}
               comingSoon={comingSoon}
               description={description}
+              height="150px"
+              usesEmoji={false}
             >
               {name}
             </FieldCheck>
