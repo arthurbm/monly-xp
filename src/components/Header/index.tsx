@@ -7,14 +7,13 @@ import { useRouter } from 'next/router';
 
 type HeaderProps = {
   title: string;
-  previousRoute: string;
   children?: React.ReactNode; // description
 };
-const Header = ({ title, children, previousRoute }: HeaderProps) => {
+const Header = ({ title, children }: HeaderProps) => {
   const router = useRouter();
 
   const handleReturn = () => {
-    router.push(previousRoute);
+    router.back();
   };
 
   return (

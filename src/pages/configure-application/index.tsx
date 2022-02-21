@@ -24,7 +24,7 @@ type Frequency = 'Trimestral' | 'Mensal' | 'Quinzenal' | 'Semestral';
 
 export default function NewInvestment() {
   const router = useRouter();
-  const [aportType, setAportType] = useState('Valor fixo');
+  const [aportType, setAportType] = useState('Parte do saldo restante do mês');
   const [balancePercentage, setBalancePercentage] = useState(50);
   const [inicialAport, setInicialAport] = useState<number>(0);
   const [frequency, setFrequency] = useState<Frequency>('Mensal');
@@ -49,7 +49,7 @@ export default function NewInvestment() {
   return (
     <Container>
       <Content>
-        <Header title="Configurar aplicação" previousRoute="/new-investment">
+        <Header title="Configurar aplicação">
           Configure os aportes de acordo com o seu objetivo
         </Header>
 

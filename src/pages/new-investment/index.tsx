@@ -30,7 +30,7 @@ export default function NewInvestment() {
   return (
     <Container>
       <Content>
-        <Header title="Novo investimento" previousRoute="/home">
+        <Header title="Novo investimento">
           Insira o nome do seu objetivo e a categoria que ele se enquadra
         </Header>
 
@@ -54,6 +54,7 @@ export default function NewInvestment() {
               checked={name === chosenCategory}
               setValue={setChosenCategory}
               comingSoon={comingSoon}
+              usesEmoji={true}
             >
               {name}
             </FieldCheck>
