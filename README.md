@@ -1,6 +1,9 @@
 # Bem vindo ao repositório do monly!
 Criando sua disciplina financeira para um futuro mais tranquilo!
 
+## Acesso ao .env do projeto
+https://arthurbm.notion.site/env-Monly-XP-44369095b76b4e828a2d48813e72d3d9
+
 ## Time 11
 |Nome| Perfil
 |--|--|
